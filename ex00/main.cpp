@@ -13,7 +13,10 @@
 #include "ClapTrap.hpp"
 
 int main(void) {
-    ClapTrap test = ClapTrap();
-
+    ClapTrap test = ClapTrap("Dima");
+    test.beRepaired(2);
+    test.attack("Hello");
+    test.beRepaired();
+    test.takeDamage(1);
     return 0;
 }

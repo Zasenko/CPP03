@@ -23,11 +23,12 @@ class ClapTrap {
         int _damage;
 
     public:
+        ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap &copy);
         ~ClapTrap();
-        ClapTrap& operator=(const ClapTrap& clapTrap);
-        void attack(const std::string& target);
+        ClapTrap &operator=(const ClapTrap &clapTrap);
+        void attack(const std::string &target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };
