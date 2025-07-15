@@ -43,9 +43,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap) {
     return *this;
 }
 
-// Когда ClapTrap атакует, он заставляет свою цель терять <attack damage> очков здоровья.
-
-// Когда ClapTrap восстанавливает себя, он восстанавливает<amount> очков здоровья (hit points).Атака и ремонт каждый стоят 1 очко энергии.
 void ClapTrap::attack(const std::string &target)
 {
     if (_hit == 0) {

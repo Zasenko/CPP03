@@ -16,7 +16,7 @@ int main(void) {
     ClapTrap test = ClapTrap("Dima");
     test.beRepaired(2);
     test.attack("Hello");
-    test.beRepaired();
+    test.beRepaired(1);
     test.takeDamage(1);
     return 0;
 }
