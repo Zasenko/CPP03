@@ -31,14 +31,16 @@ ClapTrap::~ClapTrap() {
     std::cout << "ClapTrap: Deconstructor called (name: " << _name << ")" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap& clapTrap) {
+ClapTrap &ClapTrap::operator=(const ClapTrap &src)
+{
     std::cout << "ClapTrap: Assignation operator called" << std::endl;
 
-    if (this != &clapTrap) {
-        _name = clapTrap._name;
-        _hit = clapTrap._hit;
-        _energy = clapTrap._energy;
-        _damage = clapTrap._damage;
+    if (this != &src)
+    {
+        _name = src._name;
+        _hit = src._hit;
+        _energy = src._energy;
+        _damage = src._damage;
     }
     return *this;
 }

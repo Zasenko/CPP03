@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap(), _mode(false)
+ScavTrap::ScavTrap() : ClapTrap()
 {
     std::cout << "ScavTrap: Default constructor called" << std::endl;
 
@@ -9,7 +9,7 @@ ScavTrap::ScavTrap() : ClapTrap(), _mode(false)
     _damage = 20;
 }
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), _mode(false)
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 {
     std::cout << "ScavTrap: Constructor called (name: " << name << ")" << std::endl;
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name), _mode(false)
     _damage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) {
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy) {
     std::cout << "ScavTrap: Copy constructor called" << std::endl;
 
     *this = copy;
@@ -31,9 +31,10 @@ ScavTrap::~ScavTrap()
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 {
+    std::cout << "ScavTrap: Assignation operator called" << std::endl;
+
     if (this != &src) {
         ClapTrap::operator=(src);
-        _mode = src._mode;
     }
     return *this;
 }
@@ -53,13 +54,6 @@ void ScavTrap::attack(const std::string &target) {
         _energy--;
     }
 }
-
-void ScavTrap::guardGate(){
-    // if dead?
-    if (!_mode) {
-        std::cout << "ScavTrap: " << _name << " is in Gate keeper mode now" << std::endl;
-        _mode = true;
-    } else {
-        std::cout << "ScavTrap: " << _name << " is already in Gate keeper mode" << std::endl;
-    }
+void ScavTrap::guardGate() {
+    std::cout << "ScavTrap: " << _name << " is in Gate keeper mode now" << std::endl;
 }
