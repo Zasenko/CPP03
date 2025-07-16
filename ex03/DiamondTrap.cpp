@@ -3,20 +3,20 @@
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(){
     std::cout << "DiamondTrap: Default constructor called" << std::endl;
 
-    this->_name = "Unnamed";
-    this->_hit = this->FragTrap::_hit;
-    this->_energy = this->ScavTrap::_energy;
-    this->_damage = this->FragTrap::_damage;
+    _name = "Unnamed";
+    _hit = FragTrap::_hit;
+    _energy = ScavTrap::_energy;
+    _damage = FragTrap::_damage;
 }
 
 DiamondTrap::DiamondTrap(const std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name")
 {
     std::cout << "DiamondTrap: Constructor called (name: " << name << ")" << std::endl;
 
-    this->_name = name;
-    this->_hit = this->FragTrap::_hit;
-    this->_energy = this->ScavTrap::_energy;
-    this->_damage = this->FragTrap::_damage;
+    _name = name;
+    _hit = FragTrap::_hit;
+    _energy = ScavTrap::_energy;
+    _damage = FragTrap::_damage;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy._name + "_clap_name"), ScavTrap(copy._name + "_clap_name"), FragTrap(copy._name + "_clap_name")
@@ -33,10 +33,10 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src)
         ClapTrap::operator=(src);
         ScavTrap::operator=(src);
         FragTrap::operator=(src);
-        this->_name = src._name;
-        this->_hit = src._hit;
-        this->_energy = src._energy;
-        this->_damage = src._damage;
+        _name = src._name;
+        _hit = src._hit;
+        _energy = src._energy;
+        _damage = src._damage;
     }
     return *this;
 }

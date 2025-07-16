@@ -83,9 +83,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
         std::cout << "ClapTrap " << _name << " can't repair itself! No energy points" << std::endl;
     }
     else {
-        _hit + static_cast<int>(amount) > 10 ? _hit = 10 : _hit += static_cast<int>(amount);
+        _hit += static_cast<int>(amount);
         _energy--;
         std::cout << "ClapTrap " << _name << " repaired itself (+" << amount  << " hit points)! Hit points now: " << _hit << ", energy points now: " << _energy << std::endl;
     }
-    
 }

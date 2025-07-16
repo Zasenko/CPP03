@@ -40,6 +40,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src)
 }
 
 void ScavTrap::attack(const std::string &target) {
+    std::cout << "[ScavTrap::attack called]" << std::endl;
     if (_hit == 0)
     {
         std::cout << "ScavTrap " << _name << " can't attack " << target << "! He is dead" << std::endl;
