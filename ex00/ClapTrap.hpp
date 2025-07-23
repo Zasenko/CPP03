@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzasenko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:35:37 by dzasenko          #+#    #+#             */
-/*   Updated: 2025/07/07 14:35:38 by dzasenko         ###   ########.fr       */
+/*   Updated: 2025/07/22 12:53:33 by dzasenko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <iostream>
 
-class ClapTrap {
+class ClapTrap
+{
     private:
         std::string _name;
         int _hit;
         int _energy;
         int _damage;
-
     public:
         ClapTrap();
         ClapTrap(const std::string &name);

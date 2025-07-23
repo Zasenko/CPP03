@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzasenko <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 13:09:35 by dzasenko          #+#    #+#             */
+/*   Updated: 2025/07/22 13:09:36 by dzasenko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap()
@@ -21,8 +33,6 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 {
     std::cout << "FragTrap: Copy constructor called" << std::endl;
-
-    *this = copy;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &src)
@@ -40,6 +50,11 @@ FragTrap::~FragTrap()
     std::cout << "FragTrap: Deconstructor called (name: " << _name << ")" << std::endl;
 }
 
-void FragTrap::highFivesGuys(void) {
-    std::cout << "FragTrap " << _name << ": Do you want a high five?" << std::endl;
+void FragTrap::highFivesGuys(void)
+{
+    if (_hit == 0) {
+        std::cout << "FragTrap " << _name << " can't high five! He is dead" << std::endl;
+    } else {
+        std::cout << "FragTrap " << _name << ": Do you want a high five?" << std::endl;
+    }
 }

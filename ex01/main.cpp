@@ -1,35 +1,80 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dzasenko <dzasenko@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/22 12:49:13 by dzasenko          #+#    #+#             */
+/*   Updated: 2025/07/22 13:06:25 by dzasenko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
-int main(void) {
-    ScavTrap alice("Pedro");
-    std::cout << "---------------\n";
-    ClapTrap dima("Dima");
-    std::cout << "---------------\n";
+void test_copy_constr(const ScavTrap &src)
+{
+    std::cout << "---------------------" << std::endl;
+    std::cout << "TEST Copy Constructor:" << std::endl;
+    std::cout << "---------------------" << std::endl;
+    
+    ScavTrap copy = ScavTrap(src);
+    copy.attack("Ben");
+}
 
-    // ScavTrap alice2(alice);
-    // alice2.guardGate();
-    // alice2.guardGate();
-    // alice2.guardGate();
-    // std::cout << "---------------\n";
-    // alice.guardGate();
-    // std::cout << "---------------\n";
+void test_assignment_operator(const ScavTrap &src)
+{
+    std::cout << "---------------------" << std::endl;
+    std::cout << "TEST Assignment Operator" << std::endl;
+    std::cout << "---------------------" << std::endl;
 
-    ClapTrap &t1 = dima;
-    std::cout << "---------------\n";
+    ScavTrap assigned;
+    assigned = src;
+    assigned.attack("Anna");
+}
 
-    ScavTrap &t2 = alice;
+void test_attack_repair(ScavTrap &src)
+{
+    std::cout << "---------------------" << std::endl;
+    std::cout << "TEST attack and repair:" << std::endl;
+    std::cout << "---------------------" << std::endl;
 
-    std::cout << "---------------\n";
+    src.attack("David");
+    src.takeDamage(5);
+    src.beRepaired(1);
+}
 
-    t1.attack("(ClapTrap ClapTrap)");
+void test_energy_hit(ScavTrap &src)
+{
+    std::cout << "---------------------" << std::endl;
+    std::cout << "TEST energy and hit:" << std::endl;
+    std::cout << "---------------------" << std::endl;
 
-    std::cout << "---------------\n";
+    for (int i = 0; i < 10; i++) {
+        src.attack("Sara");
+    }
+    src.takeDamage(10);
+    src.beRepaired(1);
+}
 
-    t2.attack("(ClapTrap ScavTrap)");
+void guardGate(ScavTrap &src)
+{
+    std::cout << "---------------------" << std::endl;
+    std::cout << "TEST guard gate:" << std::endl;
+    std::cout << "---------------------" << std::endl;
 
-    std::cout << "---------------\n";
-    std::cout << "---------------\n";
-    std::cout << "---------------\n";
-    std::cout << "---------------\n";
+    src.guardGate();
+}
+
+
+int main(void)
+{
+    ScavTrap nick = ScavTrap("Nick");
+    test_attack_repair(nick);
+    test_copy_constr(nick);
+    test_assignment_operator(nick);
+    test_energy_hit(nick);
+    guardGate(nick);
+    std::cout << "---------------------" << std::endl;
     return 0;
 }
